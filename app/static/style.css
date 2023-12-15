@@ -1,0 +1,26 @@
+/* style.css */
+.header {
+    background-color: yellow; /* Желтый фон шапки */
+    font-size: 30px; /* Размер шрифта */
+    text-align: center; /* Выравнивание по центру */
+    color: black; /* Цвет текста */
+    padding: 10px; /* Отступы внутри элемента */
+    margin-bottom: 10px; /* Отступ снизу */
+    width: auto; /* Ширина элемента */
+}
+
+.header:hover {
+    background-color: green; /* Зеленый фон при наведении */
+}
+
+th {
+    background-color: yellow; /* Желтый фон ячеек шапки */
+    color: black; /* Цвет текста */
+    padding: 10px; /* Отступы внутри элемента */
+}
+
+td {
+    background-color: lightgrey; /* Светло-серый фон ячеек */
+    color: black; /* Цвет текста */
+    padding: 10px; /* Отступы внутри элемента */
+}

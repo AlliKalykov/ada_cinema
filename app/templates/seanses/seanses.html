@@ -1,0 +1,21 @@
+{% extends './base.html' %}
+
+{% block title %}Сеансы {{movie}}{% endblock %}
+
+{% block content %}
+    <h1>Список сеансов</h1>
+    <table>
+        <tr>
+            <th>Дата</th>
+            <th>Время</th>
+            <th>Фильм</th>
+        </tr>
+        {% for seanse in seanses %}
+            <tr>
+                <td>{{ seanse.date }}</td>
+                <td>{{ seanse.time }}</td>
+                <td><a href="{{ url_for('movies', id=seanse.movie.id) }}">{{ seanse.movie }}</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
