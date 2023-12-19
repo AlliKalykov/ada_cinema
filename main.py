@@ -5,6 +5,9 @@ from app.models.movie import Movies
 from app.models.seanse import Seanses
 from app.models.saloon import Saloon
 
+from app.routers.index import index_bp as index
+from app.routers.movies import movies_bp as movies
+
 app = Flask(__name__)
 app.template_folder = 'app/templates' # папка с шаблонами
 app.static_folder = 'app/static' # папка со статикой
@@ -16,21 +19,12 @@ with database: # подключаемся к базе данных
     # Movies.create(name='Титаник', duration=120, rentail_start_date='1997-11-18', rental_finish_date='1998-03-18', sales_company='Paramount Pictures') # создаем фильм
     # Seanses.create(date='2023-12-15', time='12:00', movie=1) # создаем сеанс
 
-@app.route('/')
-def index():
-    return render_template('home.html')    
+app.register_blueprint(index) # регистрируем блюпринт
+app.register_blueprint(movies) # регистрируем блюпринт
 
 @app.route('/alli')
 def alli():
     return '<h1 style="font-size: 300px;">Alli</h1>'
-
-@app.route('/movies')
-def movies():
-    return render_template('movies/movies.html', movies=Movies.select(Movies, Seanses).join(Seanses))
-
-@app.route('/movies/<int:id>')
-def movie(id):
-    return render_template('movies/movie.html', movie=Movies.get_by_id(id))
 
 @app.route('/seanses')
 def seanses():
